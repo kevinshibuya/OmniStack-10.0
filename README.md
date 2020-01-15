@@ -6,7 +6,8 @@ This project is about helping people find out if there are nearby devs avaible, 
 
 - [x] Finish the backend.
 - [ ] Make the backend challenges.  
-- [ ] Finish the web frontend.
+- [x] Finish the web frontend.
+- [ ] Make the web challenges.
 - [ ] Finish the mobile frontend.
 - [ ] Add advanced functionalities.
 
