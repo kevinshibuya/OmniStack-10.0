@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from './services/api'
+import api from './services/api';
 
 import './global.css';
 import './App.css';
@@ -18,7 +18,7 @@ function App() {
 
     useEffect(() => {
         async function loadDevs() {
-            const response = await api.get('devs');
+            const response = await api.get('/devs');
 
             setDevs(response.data);
         }
@@ -30,6 +30,14 @@ function App() {
         const response = await api.post('/devs', data);
 
         setDevs([...devs, response.data]);
+    };
+
+    async function handleDeleteDev(dev) {
+        await api.delete(`/devs/delete/${dev}`);
+
+        const response = await api.get('devs');
+
+        setDevs(response.data)
     }
 
     return (
@@ -41,7 +49,7 @@ function App() {
             <main>
                 <ul>
                     {devs.map(dev => (
-                        <DevItem key={dev._id} dev={dev} />
+                        <DevItem key={dev._id} dev={dev} handleDeleteDev={handleDeleteDev} />
                     ))}
                 </ul>
             </main>

@@ -46,6 +46,8 @@ module.exports = {
     },
 
     async destroy(req, res) {
+        const devs = await Dev.deleteOne({ _id: req.params.id })
 
+        return res.json(devs);
     },
 };
